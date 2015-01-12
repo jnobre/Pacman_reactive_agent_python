@@ -438,7 +438,7 @@ def medricas(agent,state):
         return sensorghost_escape(x,y,agent,state,direction)
     else:
         #print "direacao ................."
-       # print direction
+        #print direction
         
         #procura outro fantasma
         if(direction!=Directions.WEST):
