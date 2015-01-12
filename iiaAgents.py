@@ -2,7 +2,7 @@
 """
 iiaAgents.py
 
-Created by Rui Lopes on 2012-02-18.
+Created by João Nobre on 2012-02-18.
 Copyright (c) 2012 University of Coimbra. All rights reserved.o
 """
 
@@ -20,6 +20,7 @@ class iiaPacmanAgent(Agent):
 
 #verifica os campos de visao do pacman
 def wall(x,y,direction,state):
+
     walls = state.getWalls()
     #print "Entra Wall Com=="
     #print direction
