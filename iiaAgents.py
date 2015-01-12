@@ -56,8 +56,9 @@ def wall(x,y,direction,state):
 def findfood(x,y,direction,state):
     
     px,py = state.getPacmanPosition()
-    list_comida=state.getCapsules()    
+    list_comida = state.getCapsules()    
     walls = state.getWalls()
+
     if(direction==Directions.EAST):
         x=x+1
         while walls[x][y]== False:
@@ -139,7 +140,7 @@ def findghost(x,y,direction,state,agent,num):
 
 #sensor determina se ve fantasma e manda pacman para outra direcao     
 def sensorpacman_escape(x,y,agent,state,direction,num):
-    print "ENTRA SENSOR"
+   
     #verifica as coordenadas para onde esta virado
     if(direction!=Directions.WEST):
         if (findghost(x,y,Directions.EAST,state,agent,num)==-1):
@@ -186,7 +187,7 @@ def sensorpacman_escape(x,y,agent,state,direction,num):
     return -1      
 
 def pacmania(agent,state):
-    print "PACMANIA"
+  
     #guarda estado do pacman, bem como a sua direcao e suas posicoes
     teste=state.getPacmanState()
     direction=teste.getDirection()  
@@ -390,12 +391,12 @@ def crazystrategy(agent,state):
     y=int(y)
     
     #pacman pode comer
-    if(teste.scaredTimer>0):
+    if(teste.scaredTimer > 0):
         print state.getLegalActions(agent.index)
         #sensor para escapar do pacman 
         return sensorghost_escape(x,y,agent,state,direction)
     else:
-      #a busca do pacman
+        #a busca do pacman
         if(direction!=Directions.WEST):
             if (findpath(x,y,Directions.EAST,state)==-1) and (Directions.EAST in state.getLegalActions(agent.index)):
                 return Directions.EAST
@@ -432,15 +433,14 @@ def medricas(agent,state):
     x=int(x)
     y=int(y)
     #memoria
-    num=state.getNumAgents()
+    num = state.getNumAgents()
+    
     if(teste.scaredTimer>0):
         print state.getLegalActions(agent.index)
         #sensor para escapar do pacman 
         return sensorghost_escape(x,y,agent,state,direction)
     else:
-        #print "direacao ................."
-        #print direction
-        
+
         #procura outro fantasma
         if(direction!=Directions.WEST):
             if (findghost(x,y,Directions.EAST,state,agent,num)!=-1):
